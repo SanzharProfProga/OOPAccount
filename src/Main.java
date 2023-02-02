@@ -38,7 +38,7 @@ public class Main {
                 break;
             }
         }
-        
+
 
         boolean trueOrFalse = true;
         while (trueOrFalse) {
@@ -147,22 +147,29 @@ public class Main {
                                     System.out.println("Select User ID ");
                                     for (int k = 0; k < accounts.length; k++) {
                                         System.out.println(accounts[k].userFullName + "\n" + accounts[k].id + "\n");
+                                        if (k == 2){
+                                            break;
+                                        }
                                     }
                                     System.out.println("Select ID ");
                                     int selectID = new Scanner(System.in).nextInt();
-                                    switch (selectID) {
-                                        case 2 -> {
-                                            int cash = new Scanner(System.in).nextInt();
-                                            account1.withdrawal(cash);
-                                            account2.deposit(cash);
-                                            System.out.println("New balance: " + account2.balance);
+                                    if (selectID != 2 ) {
+                                        switch (selectID) {
+                                            case 1 -> {
+                                                int cash = new Scanner(System.in).nextInt();
+                                                account1.withdrawal(cash);
+                                                account2.deposit(cash);
+                                                System.out.println("New balance: " + account2.balance);
+                                            }
+                                            case 3 -> {
+                                                int cash = new Scanner(System.in).nextInt();
+                                                account3.withdrawal(cash);
+                                                account2.deposit(cash);
+                                                System.out.println("New balance: " + account2.balance);
+                                            }
                                         }
-                                        case 3 -> {
-                                            int cash = new Scanner(System.in).nextInt();
-                                            account3.withdrawal(cash);
-                                            account2.deposit(cash);
-                                            System.out.println("New balance: " + account2.balance);
-                                        }
+                                    }else {
+                                        System.out.println("Choose a different ID");
                                     }
                                 }//case 1 SelectMode1
                                 case 2 -> {
@@ -228,6 +235,9 @@ public class Main {
                                     System.out.println("Select User ID ");
                                     for (int k = 0; k < accounts.length; k++) {
                                         System.out.println(accounts[k].userFullName + "\n" + accounts[k].id + "\n");
+                                        if (k == 2){
+                                            break;
+                                        }
                                     }
                                     System.out.println("Select ID ");
                                     int selectID = new Scanner(System.in).nextInt();
